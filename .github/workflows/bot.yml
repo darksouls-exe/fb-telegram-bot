@@ -1,0 +1,23 @@
+name: Telegram FB Downloader Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        run: python bot.py
